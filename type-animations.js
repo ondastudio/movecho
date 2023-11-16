@@ -1,19 +1,18 @@
 // pageload
 window.addEventListener("load", () => {
-  console.log("cenas");
   let indent;
   if (window.innerWidth > 991) indent = "8.5rem";
   else if (window.innerWidth <= 991) indent = "6.5rem";
   else if (window.innerWidth <= 767) indent = "5.25rem";
 
-  const makeIndent = document.querySelectorAll(".text-indent");
+  /*const makeIndent = document.querySelectorAll(".text-indent");
   makeIndent.forEach((el) => {
     const spacer = document.createElement("div");
     spacer.classList.add("spacer");
     spacer.innerHTML = "&nbsp";
     el.appendChild(spacer);
     console.log(el);
-  });
+  });*/
 
   let typeSplitLoad = { value: null };
   createSplitLoad(".intro-text", typeSplitLoad, 2.75);
@@ -71,15 +70,15 @@ window.addEventListener("load", () => {
       ease: "power4.out",
       stagger: { each: 0.05 },
       onStart: () => {
-        /*if (el.classList.contains("text-indent")) {
-          const firstWord = el.querySelectorAll(".line")[0];
-          //.querySelectorAll(".word")[0];
+        if (el.classList.contains("text-indent")) {
+          const firstWord = el.querySelectorAll(".line")[0]
+          .querySelectorAll(".word")[0];
           firstWord.style.textIndent = indent;
         }
         window.addEventListener("resize", () => {
           typeSplit.revert();
           el.style.textIndent = indent;
-        });*/
+        });
       }
     });
   }
