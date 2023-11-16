@@ -1,5 +1,6 @@
 // pageload
 window.addEventListener("load", () => {
+  console.log("cenas");
   let indent;
   if (window.innerWidth > 991) indent = "8.5rem";
   else if (window.innerWidth <= 991) indent = "6.5rem";
