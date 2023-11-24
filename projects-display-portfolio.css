@@ -140,6 +140,10 @@
     grid-column-gap: 1.25rem;
     grid-row-gap: 1.25rem;
   }
+
+  .home_proj-name_wrap {
+    max-width: 6.25rem;
+  }
 }
 
 @media only screen and (max-width: 767px) {
