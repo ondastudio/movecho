@@ -1,0 +1,176 @@
+.portfolio-list-wrapper {
+  pointer-events: none;
+}
+.portfolio-proj_wrapper {
+  pointer-events: auto;
+}
+.portfolio-list_item .portfolio-proj_img-wrap {
+  aspect-ratio: auto;
+}
+
+.portfolio-proj_wrapper {
+  width: 100%;
+}
+
+/* 1 LIST */
+.portfolio-list_item:nth-child(6n + 1) {
+  align-self: end;
+  width: 21rem;
+}
+.portfolio-list_item:nth-child(6n + 1):not(:first-child) {
+  margin-top: 4.25rem;
+}
+.portfolio-list_item:nth-child(6n + 1) .portfolio-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+.portfolio-list_item:nth-child(6n + 1) .portfolio-proj_img-wrap {
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+/* 2 LIST */
+.portfolio-list_item:nth-child(6n + 2) {
+  align-self: start;
+  width: 28.375rem;
+}
+.portfolio-list_item:nth-child(6n + 2):not(:nth-child(2)) {
+  margin-top: -15.25rem;
+}
+.portfolio-list_item:nth-child(6n + 2) .text-size-22 {
+  text-align: right;
+}
+.portfolio-list_item:nth-child(6n + 2) .portfolio-proj_info-wrap {
+  flex-direction: row-reverse;
+  margin-left: 1.25rem;
+}
+.portfolio-list_item:nth-child(6n + 2) .project-left-wrap {
+  flex-direction: row-reverse;
+}
+.portfolio-list_item:nth-child(6n + 2) .portfolio-proj_img-wrap {
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+}
+
+/* 3 LIST */
+.portfolio-list_item:nth-child(6n + 3) {
+  align-self: end;
+  margin-right: 24%;
+  width: 28.375rem;
+}
+.portfolio-list_item:nth-child(3) {
+  margin-top: -10rem;
+}
+.portfolio-list_item:nth-child(6n + 3):not(:nth-child(3)) {
+  margin-top: 0rem;
+}
+.portfolio-list_item:nth-child(6n + 3) .portfolio-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+
+/* 4 LIST */
+.portfolio-list_item:nth-child(6n + 4) {
+  align-self: end;
+  margin-top: 4.25rem;
+  margin-right: 1.25rem;
+  width: 21rem;
+}
+.portfolio-list_item:nth-child(6n + 4) .portfolio-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+
+/* 5 LIST */
+.portfolio-list_item:nth-child(6n + 5) {
+  align-self: start;
+  margin-top: -15.25rem;
+  margin-left: 8%;
+  width: 21rem;
+}
+.portfolio-list_item:nth-child(6n + 5) .text-size-22 {
+  text-align: right;
+}
+.portfolio-list_item:nth-child(6n + 5) .portfolio-proj_info-wrap {
+  flex-direction: row-reverse;
+  margin-left: 1.25rem;
+}
+.portfolio-list_item:nth-child(6n + 5) .project-left-wrap {
+  flex-direction: row-reverse;
+}
+
+/* 6 LIST */
+.portfolio-list_item:nth-child(6n + 6) {
+  align-self: end;
+  margin-right: 15%;
+  margin-top: 4.25rem;
+  width: 28.375rem;
+}
+.portfolio-list_item:nth-child(6n + 6) .portfolio-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+
+/* RESPONSIVE */
+@media only screen and (min-width: 768px) and (max-width: 1280px) {
+  .portfolio-list_item:nth-child(6n + 1) {
+    width: 24%;
+  }
+  .portfolio-list_item:nth-child(6n + 2) {
+    width: 30%;
+    margin-top: -4.25rem;
+  }
+  .portfolio-list_item:nth-child(6n + 3) {
+    width: 27%;
+    margin-top: -4rem;
+  }
+  .portfolio-list_item:nth-child(6n + 3):not(:nth-child(3)) {
+    margin-top: 4rem;
+  }
+  .portfolio-list_item:nth-child(6n + 4) {
+    width: 24%;
+  }
+  .portfolio-list_item:nth-child(6n + 5) {
+    width: 24%;
+    margin-top: -10.25rem;
+  }
+  .portfolio-list_item:nth-child(6n + 6) {
+    width: 30%;
+    margin-top: 0rem;
+  }
+
+  .filter-label {
+    font-size: 0.75rem;
+  }
+  .portolio-filters-form {
+    grid-column-gap: 1.25rem;
+    grid-row-gap: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .portfolio-list_item:nth-child(6n + 1) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 1):not(:first-child) {
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 2) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 2):not(:nth-child(2)) {
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 3) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 4) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 5) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .portfolio-list_item:nth-child(6n + 6) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+}
