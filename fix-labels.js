@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     const width = Math.ceil(text.getBoundingClientRect().width);
     return width;
   }
- 
+  
   window.addEventListener("resize", () => {
     names.forEach((name) => {
       name.style.width = null;
