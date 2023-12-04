@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  gsap.registerPlugin(Flip);
-
+function homeIntro() {
   const introVisual = document.querySelector(".visual-wrapper");
   const introChildren = [...introVisual.children];
   const introVid = document.querySelector(".intro-video");
@@ -13,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tl = new gsap.timeline({
     defaults: {
-      duration: 0.5
-    }
+      duration: 0.5,
+    },
   });
 
   tl.to(introChildren, {
     duration: 2,
     y: "0%",
-    ease: "power4.inOut"
+    ease: "power4.inOut",
   });
 
   const tl2 = new gsap.timeline();
@@ -37,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
           flipVideo();
           introAnimation();
         }, 1200);
-      }
+      },
     },
-    ">"
+    ">",
   );
 
   function flipVideo() {
@@ -48,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     newContainer.appendChild(introVisual);
     Flip.from(state, {
       duration: 2,
-      ease: "power4.inOut"
+      ease: "power4.inOut",
     });
   }
 
@@ -62,12 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: 1,
       y: "0%",
       duration: 1.5,
-      ease: "power3.out"
+      ease: "power3.out",
     },
-    "<"
+    "<",
   );
 
   function introAnimation() {
     heroIntro.restart();
   }
-});
+}
