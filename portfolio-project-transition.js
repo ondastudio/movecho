@@ -3,7 +3,8 @@ const tWrapper = document.querySelector(
 );
 tWrapper.style.display = "none";
 tWrapper.style.opacity = 0;
-document.addEventListener("DOMContentLoaded", () => {
+
+function portfolioProjectTransition() {
   const projectLinks = document.querySelectorAll(".portfolio-proj_wrapper");
   const projectBanners = document.querySelectorAll("[data-project-target]");
 
@@ -107,4 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
       tWrapper.style.opacity = 0;
     }, 100);
   });
-});
+}
