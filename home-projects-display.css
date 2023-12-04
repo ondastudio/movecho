@@ -1,0 +1,102 @@
+.home-proj_item .home-proj_img-wrap {
+  aspect-ratio: auto;
+}
+
+.home-proj_item:nth-child(odd) {
+  position: relative;
+  align-self: end;
+}
+.home-proj_item:nth-child(even) {
+  position: relative;
+  align-self: start;
+}
+
+.home-proj_wrapper {
+  width: 100%;
+}
+
+/* 1 LIST */
+.home-proj_item:nth-child(1) {
+  align-self: end;
+  width: 27.5rem;
+}
+.home-proj_item:nth-child(1) .home-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+.home-proj_item:nth-child(1) .home-proj_img-wrap {
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+/* 2 LIST */
+.home-proj_item:nth-child(2) {
+  align-self: start;
+  margin-top: -17.25rem;
+  width: 30rem;
+}
+.home-proj_item:nth-child(2) .text-size-22 {
+  text-align: right;
+}
+.home-proj_item:nth-child(2) .home-proj_info-wrap {
+  flex-direction: row-reverse;
+  margin-left: 1.25rem;
+}
+.home-proj_item:nth-child(2) .project-left-wrap {
+  flex-direction: row-reverse;
+}
+.home-proj_item:nth-child(2) .home-proj_img-wrap {
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+}
+
+/* 3 LIST */
+.home-proj_item:nth-child(3) {
+  align-self: end;
+  margin-right: 24%;
+  margin-top: -6.25rem;
+  width: 26.625rem;
+}
+.home-proj_item:nth-child(3) .home-proj_info-wrap {
+  margin-right: 1.25rem;
+}
+
+/* RESPONSIVE */
+@media only screen and (min-width: 992px) and (max-width: 1280px) {
+  .home-proj_item:nth-child(1) {
+    width: 28%;
+  }
+  .home-proj_item:nth-child(2) {
+    width: 30%;
+    margin-top: -12.25rem;
+  }
+  .home-proj_item:nth-child(3) {
+    width: 27%;
+    margin-top: -4rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .home-proj_item:nth-child(1) {
+    width: 28%;
+  }
+  .home-proj_item:nth-child(2) {
+    width: 30%;
+    margin-top: -8rem;
+  }
+  .home-proj_item:nth-child(3) {
+    width: 27%;
+    margin-top: -2rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .home-proj_item:nth-child(1) {
+    width: 57%;
+  }
+  .home-proj_item:nth-child(2) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+  .home-proj_item:nth-child(3) {
+    width: 57%;
+    margin-top: 0rem;
+  }
+}
