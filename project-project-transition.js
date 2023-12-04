@@ -1,7 +1,7 @@
 const tWrapperProj = document.querySelector(
   ".page-transition-wrapper.is-project",
 );
-window.addEventListener("load", () => {
+function projectProjectTransition() {
   // PROJECT PART
   const dur = 2;
   gsap.to(tWrapperProj, {
@@ -142,4 +142,4 @@ window.addEventListener("load", () => {
       tWrapper.style.opacity = 0;
     }, 100);
   });
-});
+}
