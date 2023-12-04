@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function homeVideosToggle() {
   const hero = document.querySelector(".intro-video");
   let hInside = { v: true };
   const vid1 = document.querySelector(".vid1");
@@ -10,17 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const vid4 = document.querySelector(".vid4");
   let vInside4 = { v: false };
 
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.create({
-    start: 0,
-    end: "max",
-    onUpdate: () => {
-      toggleVideos(hero, hInside);
-      toggleVideos(vid1, vInside1);
-      toggleVideos(vid2, vInside2);
-      toggleVideos(vid3, vInside3);
-      toggleVideos(vid4, vInside4);
-    }
+  window.addEventListener("scroll", () => {
+    toggleVideos(hero, hInside);
+    toggleVideos(vid1, vInside1);
+    toggleVideos(vid2, vInside2);
+    toggleVideos(vid3, vInside3);
+    toggleVideos(vid4, vInside4);
   });
 
   function toggleVideos(vid, inside) {
@@ -32,4 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
       inside.v = false;
     }
   }
-});
+}
