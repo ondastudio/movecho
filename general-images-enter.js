@@ -7,7 +7,8 @@ window.addEventListener("load", () => {
     if (!v.classList.contains("intro-video")) createSwipeVid(v);
   });
   imgs.forEach((i) => {
-    createSwipeImg(i);
+    if (i.complete) createSwipeImg(i);
+    else i.onload = () => createSwipeImg(i);
   });
 
   function createSwipeVid(el) {
