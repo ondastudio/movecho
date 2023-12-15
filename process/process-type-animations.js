@@ -33,6 +33,7 @@ function processTypeAnimations() {
 
           if (roman) {
             word.classList.add("is-ivy-journal");
+            word.classList.add("letter-spacing-2");
             word.classList.add("text-color-dark-3");
           }
         });
