@@ -78,7 +78,5 @@ function processSideLinks() {
         }
       });
     });
-
-    function changeSection(i) {}
   }
 }
