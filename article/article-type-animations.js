@@ -47,6 +47,15 @@ function articleTypeAnimations() {
     });
   }
 
+  const explore = document.querySelector(".scroll-anim-char");
+  let eInside = false;
+  window.addEventListener("scroll", () => {
+    if (ScrollTrigger.isInViewport(explore, 0) && !eInside) {
+      createSplitScroll(".scroll-anim-char", " .char", "lines, chars", explore);
+      eInside = true;
+    }
+  });
+
   gsap.fromTo(
     ".navbar",
     {
