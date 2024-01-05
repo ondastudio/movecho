@@ -1,6 +1,6 @@
 // pageload
 function homeTypeAnimations() {
-  createSplitLoad(".intro-text", " .word", "lines, words", 2.75);
+  createSplitLoad(".intro-text", " .word", "lines, words", 3.25);
   document.querySelector(".intro-text").style.opacity = 1;
 
   const scrollAnims = document.querySelectorAll(".scroll-anim");
