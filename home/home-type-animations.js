@@ -4,14 +4,27 @@ function homeTypeAnimations() {
   document.querySelector(".intro-text").style.opacity = 1;
 
   const scrollAnims = document.querySelectorAll(".scroll-anim");
+  let delay;
   scrollAnims.forEach((el, i) => {
     let spanInit, spanEnd;
     if (i == 0) {
       spanInit = "paixão";
       spanEnd = "executando";
+      if (ScrollTrigger.isInViewport(el, 0)) {
+        document.querySelector(".home-mission_text-wrap").style.opacity = 0;
+        delay = 3.75;
+        gsap.to(".home-mission_text-wrap", {
+          delay: delay,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+        });
+      }
     } else if (i == 2) {
       spanInit = "técnicas";
       spanEnd = "cada";
+    } else {
+      delay = 0;
     }
     if (el.classList.contains("scroll-anim-footer"))
       createSplitScrollRoman(".scroll-anim-footer", i, el, spanInit, spanEnd);
@@ -22,10 +35,11 @@ function homeTypeAnimations() {
         el,
         spanInit,
         spanEnd,
+        delay
       );
   });
 
-  function createSplitScrollRoman(c, i, el, spanInit, spanEnd) {
+  function createSplitScrollRoman(c, i, el, spanInit, spanEnd, d) {
     let typeSplit = new SplitType(c, {
       types: "lines, words",
       tagName: "span",
@@ -37,6 +51,7 @@ function homeTypeAnimations() {
         start: "top 90%",
         end: "top 90%",
       },
+      delay: d,
     });
     tl.to(c, {
       opacity: 1,
