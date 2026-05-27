@@ -1,5 +1,5 @@
 function downloadFilename() {
-  document.querySelectorAll("[data-filename]").forEach((el) => {
+  document.querySelectorAll("[display-filename]").forEach((el) => {
     el.textContent = extractFilename(el.getAttribute("href"));
   });
 }
@@ -12,3 +12,5 @@ function extractFilename(url) {
   // filename = filename.replace(/\.[^/.]+$/, "");
   return decodeURIComponent(filename);
 }
+
+document.addEventListener("DOMContentLoaded", downloadFilename);
