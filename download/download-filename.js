@@ -1,5 +1,5 @@
 function downloadFilename() {
-  document.querySelectorAll("[display-filename]").forEach((el) => {
+  document.querySelectorAll("[data-filename]").forEach((el) => {
     el.textContent = extractFilename(el.getAttribute("href"));
   });
 }
