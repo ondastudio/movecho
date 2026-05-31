@@ -114,4 +114,37 @@ function portfolioTypeAnimations() {
       },
     );
   }
+
+  // FOOTER TITLE — SPLIT ON SCROLL //
+  const footerAnim = document.querySelector(".scroll-anim-footer");
+  if (footerAnim) {
+    const onScroll = () => {
+      if (ScrollTrigger.isInViewport(footerAnim, 0)) {
+        window.removeEventListener("scroll", onScroll);
+
+        new SplitType(".scroll-anim-footer", {
+          types: "lines, words",
+          tagName: "span",
+          reduceWhiteSpace: false,
+        });
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: footerAnim,
+            start: "top 90%",
+            end: "top 90%",
+          },
+        });
+        tl.to(".scroll-anim-footer", { opacity: 1, duration: 0 });
+        tl.from(".scroll-anim-footer .word", {
+          y: "100%",
+          opacity: 0,
+          duration: 1.75,
+          ease: "power4.out",
+          stagger: { each: 0.05 },
+        });
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+  }
 }
