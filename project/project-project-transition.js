@@ -136,10 +136,17 @@ function projectProjectTransition() {
       });
     });
   });
-  window.addEventListener("unload", () => {
-    setTimeout(() => {
-      tWrapper.style.display = "none";
-      tWrapper.style.opacity = 0;
-    }, 100);
+  // Repoe as cortinas de transicao quando a pagina e mostrada, incluindo ao
+  // voltar atras (back/forward cache). Substitui o antigo "unload", que era
+  // bloqueado pelo browser e nao funcionava.
+  window.addEventListener("pageshow", (e) => {
+    tWrapper.style.display = "none";
+    tWrapper.style.opacity = 0;
+    if (e.persisted) {
+      // veio do back/forward cache: garante que a cortina de entrada
+      // (.is-project) tambem nao fica presa a tapar a pagina
+      tWrapperProj.style.opacity = 0;
+      tWrapperProj.style.display = "none";
+    }
   });
 }

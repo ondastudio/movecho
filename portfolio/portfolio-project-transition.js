@@ -102,10 +102,12 @@ function portfolioProjectTransition() {
       });
     });
   });
-  window.addEventListener("unload", () => {
-    setTimeout(() => {
-      tWrapper.style.display = "none";
-      tWrapper.style.opacity = 0;
-    }, 100);
+
+  // Repõe a cortina de transição a escondida sempre que a página é mostrada,
+  // incluindo quando se volta atrás (back/forward cache). Substitui o antigo
+  // handler de "unload", que era bloqueado pelo browser e não funcionava.
+  window.addEventListener("pageshow", () => {
+    tWrapper.style.display = "none";
+    tWrapper.style.opacity = 0;
   });
 }
