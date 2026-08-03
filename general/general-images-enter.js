@@ -1,5 +1,10 @@
 // pageload
-window.addEventListener("load", () => {
+// Set up the image/video reveals as soon as the DOM is ready, instead of
+// waiting for the ENTIRE page (all media) to finish downloading. Each image
+// still reveals only once IT has loaded (i.complete / load event), so with
+// lazy loading the reveals now happen progressively as you scroll, rather
+// than all at once after the whole page has downloaded.
+function imagesEnter() {
   const vids = document.querySelectorAll("video");
   const imgs = document.querySelectorAll(".img-anim");
 
@@ -8,7 +13,7 @@ window.addEventListener("load", () => {
   });
   imgs.forEach((i) => {
     if (i.complete) createSwipeImg(i);
-    else i.onload = () => createSwipeImg(i);
+    else i.addEventListener("load", () => createSwipeImg(i));
   });
 
   function createSwipeVid(el) {
@@ -88,4 +93,11 @@ window.addEventListener("load", () => {
       },
     );
   }
-});
+}
+
+// Run as soon as the DOM is parsed (not after the whole page has loaded)
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", imagesEnter);
+} else {
+  imagesEnter();
+}
