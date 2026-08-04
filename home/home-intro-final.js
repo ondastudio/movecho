@@ -69,6 +69,23 @@ function homeIntro() {
     heroIntro.restart();
   }
 
+  // Fade out the loader background, then remove it from the layout.
+  // .visual-wrapper has already been moved OUT of .homepage-intro by flipVideo(),
+  // so this only affects the leftover loader container, not the hero video.
+  function hideLoader() {
+    const loader = document.querySelector(".homepage-intro");
+    if (!loader) return;
+    gsap.to(loader, {
+      delay: 1.2, // let the 2s flip get most of the way there first
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      onComplete: () => {
+        loader.style.display = "none";
+      },
+    });
+  }
+
   // --- Finish ONCE: on load, or a safety net if the load stalls ---
   // NOTE: the old `tl2.restart()` on load is intentionally gone — that restart
   // wiped the images back to invisible and re-exposed the logo a second time.
@@ -82,6 +99,7 @@ function homeIntro() {
     introVid.play().catch(() => {}); // don't throw if autoplay is blocked
     flipVideo();
     introAnimation(); // reveal navbar + cookie banner
+    hideLoader(); // fade out + remove the leftover loader background
   }
 
   if (document.readyState === "complete") {
