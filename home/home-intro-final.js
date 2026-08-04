@@ -69,19 +69,30 @@ function homeIntro() {
     heroIntro.restart();
   }
 
-  // Fade out the loader background, then remove it from the layout.
-  // .visual-wrapper has already been moved OUT of .homepage-intro by flipVideo(),
-  // so this only affects the leftover loader container, not the hero video.
+  // Fade out ONLY the loader's background colour (not its opacity), so the
+  // video handing off from the slideshow stays fully visible the whole time.
+  // Fading opacity would dim the video too if the hero sits inside .homepage-intro.
   function hideLoader() {
     const loader = document.querySelector(".homepage-intro");
     if (!loader) return;
+
+    // Build a fully-transparent version of the current background colour,
+    // so it fades to clear without tinting toward black on the way.
+    const bg = getComputedStyle(loader).backgroundColor; // e.g. "rgb(245, 240, 235)"
+    const clear = bg.startsWith("rgb(")
+      ? bg.replace("rgb(", "rgba(").replace(")", ", 0)")
+      : "rgba(0, 0, 0, 0)";
+
     gsap.to(loader, {
       delay: 1.2, // let the 2s flip get most of the way there first
-      opacity: 0,
+      backgroundColor: clear,
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
-        loader.style.display = "none";
+        // leftover is now transparent; make it click-through so it never
+        // blocks the page. (No display:none — that could hide the hero if the
+        // video container lives inside .homepage-intro.)
+        loader.style.pointerEvents = "none";
       },
     });
   }
