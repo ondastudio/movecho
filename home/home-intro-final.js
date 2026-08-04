@@ -69,15 +69,16 @@ function homeIntro() {
     heroIntro.restart();
   }
 
-  // Fade out ONLY the loader's background colour (not its opacity), so the
-  // video handing off from the slideshow stays fully visible the whole time.
-  // Fading opacity would dim the video too if the hero sits inside .homepage-intro.
+  // .homepage-intro is a full-screen overlay that SITS ON TOP of the hero
+  // (it's a sibling of the hero <header>, not its parent). If it's left in
+  // place it covers the hero TEXT — which is exactly the "text never appears"
+  // bug. So: dissolve its background (reveals the text behind it, without
+  // dimming the video), then remove it from the page entirely.
   function hideLoader() {
     const loader = document.querySelector(".homepage-intro");
     if (!loader) return;
 
-    // Build a fully-transparent version of the current background colour,
-    // so it fades to clear without tinting toward black on the way.
+    // Fade the BACKGROUND to transparent (not opacity) so the video stays crisp.
     const bg = getComputedStyle(loader).backgroundColor; // e.g. "rgb(245, 240, 235)"
     const clear = bg.startsWith("rgb(")
       ? bg.replace("rgb(", "rgba(").replace(")", ", 0)")
@@ -89,10 +90,9 @@ function homeIntro() {
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
-        // leftover is now transparent; make it click-through so it never
-        // blocks the page. (No display:none — that could hide the hero if the
-        // video container lives inside .homepage-intro.)
-        loader.style.pointerEvents = "none";
+        // Safe: .homepage-intro does NOT contain the hero, so removing it
+        // can never hide the hero. This guarantees the text is uncovered.
+        loader.style.display = "none";
       },
     });
   }
